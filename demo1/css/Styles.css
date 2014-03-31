@@ -1,0 +1,35 @@
+﻿.bevyupStyleBoardDiv {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  min-height: 100px;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: lightblue;
+  font: 11px Arial, Helvetica, sans-serif;
+  z-index: 999999;
+}
+.bevyupStyleBoardDiv div {
+  padding: 4px;
+}
+.bevyupStyleBoardDiv .newlyAddedTool {
+  min-height: 25px;
+  overflow: hidden;
+}
+.bevyupStyleBoardDiv.agentSide {
+  background-color: yellow;
+}
+.bevyupStyleBoardDiv.agentSide.remoteLinkFound .remoteInviteLink {
+  display: block;
+}
+.bevyupStyleBoardDiv.agentSide.remoteLinkNotFound .generateLinkButton {
+  display: block;
+}
+.bevyupStyleBoardDiv .generateLinkButton {
+  display: none;
+}
+.bevyupStyleBoardDiv .remoteInviteLink {
+  display: none;
+}
