@@ -1,0 +1,147 @@
+﻿
+.bevyupStyleBoardDiv {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    min-height: 100px;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: lightblue;
+    font: 11px Arial,Helvetica,sans-serif;
+    z-index: 999999;
+
+    div {
+        padding: 4px;
+    }
+
+    .newlyAddedTool {
+        min-height: 25px;
+        overflow: hidden;
+    }
+
+
+    &.agentSide {
+        &.remoteLinkFound {
+            .remoteInviteLink {
+                display: block;
+            }
+        }
+
+        &.remoteLinkNotFound {
+            .generateLinkButton {
+                display: block;
+            }
+        }
+
+        background-color: yellow;
+    }
+
+    .generateLinkButton {
+        display: none;
+    }
+
+    .remoteInviteLink {
+        display: none;
+    }
+}
+
+.bevyupIdentificationWidget {
+    background-color: #a0d468;
+    color: white;
+
+    h2 {
+        background-color: #8cc152;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .content {
+        padding: 10px;
+        font-size: 12px;
+
+        .welcomeText {
+            .welcomeUserName {
+                font-weight: bold;
+            }
+
+            margin: 10px 0;
+        }
+
+        .dashboardLink {
+            &, &:visited, &:hover, &:active {
+                color: inherit;
+            }
+        }
+
+        .logOutLink {
+            text-decoration: underline;
+            cursor: pointer;
+            float: right;
+        }
+    }
+}
+
+
+.bevyup_tagBoard_widget {
+    background-color: #4fc1e9;
+    color: white;
+
+    h2 {
+        margin: 0;
+        background-color: #3bafda;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    ul {
+        font-size: 12px;
+        height: 100%;
+        margin: 0;
+        list-style: none;
+        overflow-y: auto;
+
+        li {
+            margin: 20px 0;
+        }
+    }
+
+    .tbw_productView {
+        .tbw_prodInfo {
+            display: inline-block;
+            margin-left: 20px;
+
+            .tbw_prodName {
+                font-weight: bold;
+            }
+
+            .tbw_prodPrice:before {
+                content: "$";
+            }
+
+            .tbw_prodCommentCount {
+                &:before {
+                    content: "Comments: ";
+                }
+            }
+        }
+
+        > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .tbw_prodImg {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: white;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+    }
+}

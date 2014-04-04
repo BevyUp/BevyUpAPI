@@ -1,0 +1,174 @@
+<html>
+<head>
+    <title>Add Product Widget Demo</title>
+
+    <script type="text/javascript">
+        // Checks whether the url has a parameter of bevyupagentmodel.
+        // If so, set the window variable so the widgets will be able to act accordingly
+        window.bevyupAgentMode = window.location.href.toLowerCase().indexOf("bevyupagentmode") != -1;
+    </script>
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Styles.css">
+    <script type="text/javascript" src="../InitScriptWithInviteIdOverride.js"></script>
+    <script type="text/javascript" src="../IdentityWidget.js"></script>
+    <script type="text/javascript" src="../TagBoardWidget.js"></script>
+    <script type="text/javascript" src="../AddProductWidget.js"></script>
+    <script type="text/javascript" async="" id="bevyup_partner_script" src="//b.bevyup.com/GetTemplateScript/bevyup_demo/v1"></script>
+
+    <script type="text/javascript">
+        // Inlining the product data structure here for use by the AddProduct Widget.
+        // We could encode these in data- attributes if we want, or write some inline click handlers.
+        // This is just one possible way to make this data accessible to the widget.
+        var productData = {
+            123001: {
+                bup_id: "123001",
+                bup_name: "Product A",
+                bup_url: "http://omgiluvit.com/products/65-hp-pavilion-elite-m9150f-desktop-pc.aspx",
+                bup_imageUrl: "http://omgiluvit.com/images/thumbs/0000112_300.jpeg",
+                bup_price: "13500"
+            },
+            123002: {
+                bup_id: "123002",
+                bup_name: "Product B",
+                bup_url: "http://omgiluvit.com/products/73-acer-aspire-one-89-mini-notebook-case-black.aspx",
+                bup_imageUrl: "http://omgiluvit.com/images/thumbs/0000125_300.jpeg",
+                bup_price: "21.60"
+            },
+            123003: {
+                bup_id: "123003",
+                bup_name: "Product C",
+                bup_url: "http://omgiluvit.com/products/80-corel-paint-shop-pro-photo-x2.aspx",
+                bup_imageUrl: "http://omgiluvit.com/images/thumbs/0000133_300.jpeg",
+                bup_price: "65"
+            }
+        };
+    </script>
+    <style type='text/css'>
+        body {
+            margin: 0;
+        }
+
+        .productList {
+            list-style: none;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .product {
+            margin: 20px 0;
+
+        }
+
+        .product > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .productInfo > * {
+            display: block;
+        }
+
+        .product img {
+            width: 150px;
+            border-radius: 100%
+        }
+
+        button.addToTagBoard {
+            cursor: pointer;
+            border-radius: 6px;
+            background-color: #967adc;
+            border: 0;
+            padding: 10px;
+            color: white;
+            /* Default to hidden */
+            display: none;
+        }
+
+        .gs_localAgent button.addToTagBoard,
+        .gs_showAddProductButton button.addToTagBoard {
+            /* Make the AddToTagBoard buttons visible for the agent only */
+            display: inline-block;
+        }
+
+        button.addToTagBoard:not(.added):before {
+            content: "+";
+            font-size: 18px;
+            margin-right: 4px;
+        }
+
+        .container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-family: sans-serif;
+        }
+
+        .column1, .column2, .column3 {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .column1 {
+            width: 25%;
+        }
+
+        .column2 {
+            overflow-y: auto;
+            height: 100%;
+            width: 48%;
+            background-color: #ac92ec;
+            color: white;
+        }
+
+        .column3 {
+            width: 25%;
+        }
+
+        .column2 h2 {
+            margin: 0;
+            padding: 10px;
+            background-color: #967adc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column1 identityParent">
+        </div>
+        <div class="column2">
+            <h2>Test Products</h2>
+            <ul class='productList'>
+                <li class='product'>
+                    <a href='http://omgiluvit.com/products/65-hp-pavilion-elite-m9150f-desktop-pc.aspx'><img src='http://omgiluvit.com/images/thumbs/0000112_300.jpeg'></img></a>
+                    <div class='productInfo'>
+                        <span>Product A</span>
+                        <span class='price'>$13,500.00</span>
+                        <!-- NOTE: We inline the productId as a data attribute here so we can lookup the full product details for it -->
+                        <button class='addToTagBoard' data-product-id='123001'>Add to Favorites</button>
+                    </div>
+                </li>
+                <li class='product'>
+                    <a href='http://omgiluvit.com/products/73-acer-aspire-one-89-mini-notebook-case-black.aspx'><img src='http://omgiluvit.com/images/thumbs/0000125_300.jpeg'></img></a>
+                    <div class='productInfo'>
+                        <span>Product B</span>
+                        <span class='price'>$21.60</span>
+                        <button class='addToTagBoard' data-product-id='123002'>Add to Favorites</button>
+                    </div>
+                </li>
+                <li class='product'>
+                    <a href='http://omgiluvit.com/products/80-corel-paint-shop-pro-photo-x2.aspx'><img src='http://omgiluvit.com/images/thumbs/0000133_300.jpeg'></img></a>
+                    <div class='productInfo'>
+                        <span>Product C</span>
+                        <span class='price'>$65.00</span>
+                        <button class='addToTagBoard' data-product-id='123003'>Add to Favorites</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="column3 tagboardParent"></div>
+    </div>
+</body>
+</html>
