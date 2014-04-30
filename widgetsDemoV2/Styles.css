@@ -1,0 +1,193 @@
+﻿.bevyupStyleBoardDiv {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  min-height: 100px;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: lightblue;
+  font: 11px Arial, Helvetica, sans-serif;
+  z-index: 999999;
+}
+.bevyupStyleBoardDiv div {
+  padding: 4px;
+}
+.bevyupStyleBoardDiv .newlyAddedTool {
+  min-height: 25px;
+  overflow: hidden;
+}
+.bevyupStyleBoardDiv.agentSide {
+  background-color: yellow;
+}
+.bevyupStyleBoardDiv.agentSide.remoteLinkFound .remoteInviteLink {
+  display: block;
+}
+.bevyupStyleBoardDiv.agentSide.remoteLinkNotFound .generateLinkButton {
+  display: block;
+}
+.bevyupStyleBoardDiv .generateLinkButton {
+  display: none;
+}
+.bevyupStyleBoardDiv .remoteInviteLink {
+  display: none;
+}
+.bevyupIdentificationWidget {
+  background-color: #a0d468;
+  color: white;
+}
+.bevyupIdentificationWidget h2 {
+  background-color: #8cc152;
+  padding: 10px;
+  margin: 0;
+}
+.bevyupIdentificationWidget .content {
+  padding: 10px;
+  font-size: 12px;
+}
+.bevyupIdentificationWidget .content .welcomeText {
+  margin: 10px 0;
+}
+.bevyupIdentificationWidget .content .welcomeText .welcomeUserName {
+  font-weight: bold;
+}
+.bevyupIdentificationWidget .content .dashboardLink,
+.bevyupIdentificationWidget .content .dashboardLink:visited,
+.bevyupIdentificationWidget .content .dashboardLink:hover,
+.bevyupIdentificationWidget .content .dashboardLink:active {
+  color: inherit;
+}
+.bevyupIdentificationWidget .content .logOutLink {
+  text-decoration: underline;
+  cursor: pointer;
+  float: right;
+}
+.bevyup_tagBoard_widget {
+  background-color: #4fc1e9;
+  color: white;
+}
+.bevyup_tagBoard_widget h2 {
+  margin: 0;
+  background-color: #3bafda;
+  font-weight: bold;
+  padding: 10px;
+}
+.bevyup_tagBoard_widget ul {
+  font-size: 12px;
+  height: 100%;
+  margin: 0;
+  list-style: none;
+  overflow-y: auto;
+}
+.bevyup_tagBoard_widget ul li {
+  margin: 20px 0;
+}
+.bevyup_tagBoard_widget .tbw_productView .tbw_prodInfo {
+  display: inline-block;
+  margin-left: 20px;
+}
+.bevyup_tagBoard_widget .tbw_productView .tbw_prodInfo .tbw_prodName {
+  font-weight: bold;
+}
+.bevyup_tagBoard_widget .tbw_productView .tbw_prodInfo .tbw_prodPrice:before {
+  content: "$";
+}
+.bevyup_tagBoard_widget .tbw_productView .tbw_prodInfo .tbw_prodCommentCount:before {
+  content: "Comments: ";
+}
+.bevyup_tagBoard_widget .tbw_productView > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.bevyup_tagBoard_widget .tbw_productView .tbw_prodImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.bevyup_chat_widget {
+  background-color: #FF4468;
+  color: white;
+  margin-top: 5px;
+}
+.bevyup_chat_widget h2 {
+  margin: 0;
+  background-color: #EF3458;
+  font-weight: bold;
+  padding: 10px;
+}
+.bevyup_chat_widget .cw_chatArea {
+  padding: 5px;
+}
+.bevyup_chat_widget .cw_chatArea .cw_list {
+  height: 200px;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
+.bevyup_chat_widget .cw_chatArea .cw_list .cw_chatView {
+  margin-top: 4px;
+  list-style: none;
+}
+.bevyup_chat_widget .cw_chatArea .cw_list .cw_chatView .cw_partImageWrapper {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  padding: 2px;
+  display: inline-block;
+  vertical-align: top;
+}
+.bevyup_chat_widget .cw_chatArea .cw_list .cw_chatView .cw_partImageWrapper.cw_agentUser {
+  background-color: #20B1EC;
+}
+.bevyup_chat_widget .cw_chatArea .cw_list .cw_chatView .cw_partImageWrapper.cw_customerUser {
+  background-color: #73B03D;
+}
+.bevyup_chat_widget .cw_chatArea .cw_list .cw_chatView .cw_partImageWrapper img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  position: static;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+}
+.bevyup_chat_widget .cw_chatArea .cw_list .cw_chatView .cw_text {
+  display: inline-block;
+  max-width: calc(100% - 48px);
+  max-width: -webkit-calc(100% - 48px);
+  max-width: -moz-calc(100% - 48px);
+  vertical-align: middle;
+  margin-left: 7px;
+  word-wrap: break-word;
+}
+.bevyup_chat_widget .cw_chatArea .cw_chatInput {
+  width: 100%;
+  overflow: hidden auto;
+}
+.bevyup_agent_utilities_widget {
+  background-color: #884468;
+  color: white;
+  margin-top: 5px;
+}
+.bevyup_agent_utilities_widget h2 {
+  margin: 0;
+  background-color: #783458;
+  font-weight: bold;
+  padding: 10px;
+}
+.bevyup_agent_utilities_widget .content {
+  padding: 10px;
+  font-size: 12px;
+}
+.bevyup_agent_utilities_widget .content .agentId {
+  margin: 10px 0;
+}
