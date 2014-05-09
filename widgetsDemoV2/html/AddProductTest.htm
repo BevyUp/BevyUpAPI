@@ -16,7 +16,26 @@
     <script type="text/javascript" src="../AddProductWidget.js"></script>
     <script type="text/javascript" src="../ChatWidget.js"></script>
     <script type="text/javascript" src="../AgentUtilitiesWidget.js"></script>
-    <script type="text/javascript" async="" id="bevyup_partner_script" src="//b.bevyup.com/GetTemplateScript/bevyup_demo/v2"></script>
+	<script type="text/javascript">
+	
+        var bu = document.createElement('script'),
+			partnerId = 'bevyup_demo';
+			
+		bu.type = 'text/javascript';
+		bu.async = true;
+		bu.id = 'bevyup_partner_script';
+		
+		var overridePartnerIdResult = window.location.search.match(new RegExp('overridePartnerId=([^&#]+)'));
+
+        if (overridePartnerIdResult) {
+            partnerId = overridePartnerIdResult[1];
+        }
+		
+		bu.src = '//b.bevyup.com/GetTemplateScript/' + partnerId + '/v2';
+		
+		document.head.appendChild(bu);
+		
+	</script>
 
     <script type="text/javascript">
         // Inlining the product data structure here for use by the AddProduct Widget.
