@@ -9,189 +9,96 @@
     </script>
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/yeti/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../Styles.css">
+    <link rel="stylesheet" type="text/css" href="../Nordstrom.css">
+    <script type="text/javascript" src="../Nordstrom.js"></script>
     <script type="text/javascript" src="../InitScriptWithInviteIdOverride.js"></script>
     <script type="text/javascript" src="../RosterWidget.js"></script>
     <script type="text/javascript" src="../TagBoardWidget.js"></script>
     <script type="text/javascript" src="../AddProductWidget.js"></script>
     <script type="text/javascript" src="../ChatWidget.js"></script>
     <script type="text/javascript" src="../AgentUtilitiesWidget.js"></script>
-	<script type="text/javascript">
-	
+    <script type="text/javascript">
         var bu = document.createElement('script'),
-			partnerId = 'bevyup_demo';
-			
-		bu.type = 'text/javascript';
-		bu.async = true;
-		bu.id = 'bevyup_partner_script';
-		
-		var overridePartnerIdResult = window.location.search.match(new RegExp('overridePartnerId=([^&#]+)'));
+            partnerId = 'bevyup_demo';
+
+        bu.type = 'text/javascript';
+        bu.async = true;
+        bu.id = 'bevyup_partner_script';
+
+        var overridePartnerIdResult = window.location.search.match(new RegExp('overridePartnerId=([^&#]+)'));
 
         if (overridePartnerIdResult) {
             partnerId = overridePartnerIdResult[1];
         }
-		
-		bu.src = '//b.bevyup.com/GetTemplateScript/' + partnerId + '/v1';
-		
-		document.head.appendChild(bu);
-		
-	</script>
 
+        bu.src = '//b.bevyup.com/GetTemplateScript/' + partnerId + '/v1';
+
+        document.head.appendChild(bu);
+
+    </script>
     <script type="text/javascript">
-        // Inlining the product data structure here for use by the AddProduct Widget.
-        // We could encode these in data- attributes if we want, or write some inline click handlers.
-        // This is just one possible way to make this data accessible to the widget.
         var productData = {
-            123001: {
-                bup_id: "123001",
-                bup_name: "Product A",
-                bup_url: "http://www.amazon.com/Superman-Mens-Classic-Shield-Logo/dp/B0017RSV3I",
-                bup_imageUrl: "http://ecx.images-amazon.com/images/I/61OBH4P79dL._UX385_.jpg",
-                bup_price: "19.99"
+            4073252: {
+                bup_id: "4073252",
+                bup_name: "Floral Embroidered Mesh Sheath Dress ",
+                bup_url: "http://shop.nordstrom.com/s/adrianna-papellfloral-embroidered-mesh-sheath-dress-regular-petite/4073252?origin=category-personalizedsort&contextualcategoryid=0&fashionColor=&resultback=700",
+                bup_imageUrl: "http://g.nordstromimage.com/imagegallery/store/product/Medium/12/_11004372.jpg",
+                bup_price: "USD 178"
             },
-            123002: {
-                bup_id: "123002",
-                bup_name: "Product B",
-                bup_url: "http://www.amazon.com/Batman-Classic-Adult-T-Shirt-XXX-Large/dp/B004NJODE8",
-                bup_imageUrl: "http://ecx.images-amazon.com/images/I/51tnNnQqGrL._UX385_.jpg",
-                bup_price: "21.99"
+            4110293: {
+                bup_id: "4110293",
+                bup_name: "Embellished Georgette Fit & Flare Dress",
+                bup_url: "http://shop.nordstrom.com/s/lace-motif-panlled/4110293?origin=category",
+                bup_imageUrl: "http://g.nordstromimage.com/imagegallery/store/product/Medium/8/_10982468.jpg",
+                bup_price: "USD 649"
             },
-            123003: {
-                bup_id: "123003",
-                bup_name: "Product C",
-                bup_url: "http://www.amazon.com/Wonder-Woman-Adult-T-Shirt-Large/dp/B003CBMXJK",
-                bup_imageUrl: "http://ecx.images-amazon.com/images/I/51YaIYnQEUL._UX385_.jpg",
-                bup_price: "23.49"
+            4104104: {
+                bup_id: "4104104",
+                bup_name: "Floral Print Faille Fit & Flare Dress",
+                bup_url: "http://shop.nordstrom.com/s/eliza-jfloral-print-faille-fit-flare-dress-regular-petite/4104104?origin=category",
+                bup_imageUrl: "http://g.nordstromimage.com/imagegallery/store/product/Medium/4/_11022584.jpg",
+                bup_price: "USD 178"
             }
         };
+        $(function () {
+            console.log("hEre");
+            var productsContainerList = $('#productsList');
+            $.each(productData, function (index, element) {
+                var productHtml = '<li class="product">' +
+                    '<a href="' + element.bup_url + '">' +
+                    '<img src="' + element.bup_imageUrl + '"></img></a>' +
+                    '<div class="productInfo">' +
+                    '<span>' + element.bup_name + '</span>' +
+                    '<span class="price">' + element.bup_price + '</span>' +
+                    '<button class="btn btn-primary addToTagBoard" data-product-id="' + element.bup_id + '">Add to Favorites</button>' +
+                    '</div>' +
+                    '</li>';
+                productsContainerList.append(productHtml);
+                console.log(productHtml);
+            });
+        });
     </script>
-    <style type='text/css'>
-        body {
-            margin: 0;
-        }
-
-        .productList {
-            list-style: none;
-            display: inline-block;
-            text-align: left;
-        }
-
-        .product {
-            margin: 20px 0;
-
-        }
-
-        .product > * {
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .productInfo > * {
-            display: block;
-        }
-
-        .product img {
-            width: 150px;
-            border-radius: 100%
-        }
-
-        button.addToTagBoard {
-            cursor: pointer;
-            border-radius: 6px;
-            background-color: #967adc;
-            border: 0;
-            padding: 10px;
-            color: white;
-            /* Default to hidden */
-            display: none;
-        }
-
-        .gs_localAgent button.addToTagBoard,
-        .gs_showAddProductButton button.addToTagBoard {
-            /* Make the AddToTagBoard buttons visible for the agent only */
-            display: inline-block;
-        }
-
-        button.addToTagBoard:not(.added):before {
-            content: "+";
-            font-size: 18px;
-            margin-right: 4px;
-        }
-
-        .container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            font-family: sans-serif;
-        }
-
-        .column1, .column2, .column3 {
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        .column1 {
-            width: 25%;
-        }
-
-        .column2 {
-            overflow-y: auto;
-            height: 100%;
-            width: 48%;
-            background-color: #ac92ec;
-            color: white;
-            margin: 0 5px;
-        }
-
-        .column3 {
-            width: 25%;
-        }
-
-        .column2 h2 {
-            margin: 0;
-            padding: 10px;
-            background-color: #967adc;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="column1">
-            <div class="identityParent"></div>
-            <div class="chatParent"></div>
-            <div class="agentParent"></div>
-        </div><div class="column2">
-            <h2>Test Products</h2>
-            <ul class='productList'>
-                <li class='product'>
-                    <a href='http://www.amazon.com/Superman-Mens-Classic-Shield-Logo/dp/B0017RSV3I'><img src='http://ecx.images-amazon.com/images/I/61OBH4P79dL._UX385_.jpg'></img></a>
-                    <div class='productInfo'>
-                        <span>Product A</span>
-                        <span class='price'>$19.99</span>
-                        <!-- NOTE: We inline the productId as a data attribute here so we can lookup the full product details for it -->
-                        <button class='addToTagBoard' data-product-id='123001'>Add to Favorites</button>
-                    </div>
-                </li>
-                <li class='product'>
-                    <a href='http://www.amazon.com/Batman-Classic-Adult-T-Shirt-XXX-Large/dp/B004NJODE8'><img src='http://ecx.images-amazon.com/images/I/51tnNnQqGrL._UX385_.jpg'></img></a>
-                    <div class='productInfo'>
-                        <span>Product B</span>
-                        <span class='price'>$21.99</span>
-                        <button class='addToTagBoard' data-product-id='123002'>Add to Favorites</button>
-                    </div>
-                </li>
-                <li class='product'>
-                    <a href='http://www.amazon.com/Wonder-Woman-Adult-T-Shirt-Large/dp/B003CBMXJK'><img src='http://ecx.images-amazon.com/images/I/51YaIYnQEUL._UX385_.jpg'></img></a>
-                    <div class='productInfo'>
-                        <span>Product C</span>
-                        <span class='price'>$23.49</span>
-                        <button class='addToTagBoard' data-product-id='123003'>Add to Favorites</button>
-                    </div>
-                </li>
-            </ul>
-        </div><div class="column3 tagboardParent"></div>
+    <div class="container-full">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 column1">
+                <div class="identityParent"><div class="bevyupIdentificationWidget"><h2>User Identity</h2><div class="content">    <div class="welcomeText">Welcome, <span class="welcomeUserName">Host</span>!</div>    <a class="dashboardLink" href="http://agent.bevyup.com">Dashboard</a>    <div class="logOutLink">Log Out</div></div></div></div>
+                <div class="chatParent"><div class="bevyup_chat_widget"><h2>Chat</h2><div class="cw_chatArea">    <ul class="cw_list"></ul>    <textarea class="cw_chatInput"></textarea>    <div class="cw_chatStatus"></div></div></div></div>
+                <div class="agentParent"></div>
+            </div>
+            <div class="col-md-5 col-sm-5 column2">
+                <div class="bevyup_productsBoard_widget">
+                    <h2>Women's Dresses</h2>
+                    <ul id="productsList" class='productList'></ul>
+                </div>
+            </div>
+            <div class="col-md-4 .col-sm-4 column3 tagboardParent"></div>
+        </div>
     </div>
 </body>
 </html>

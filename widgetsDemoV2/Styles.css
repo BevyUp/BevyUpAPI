@@ -66,6 +66,7 @@
 .bevyup_tagBoard_widget {
   background-color: #4fc1e9;
   color: white;
+  height: 100%;
 }
 .bevyup_tagBoard_widget h2 {
   margin: 0;
@@ -74,8 +75,7 @@
   padding: 10px;
 }
 .bevyup_tagBoard_widget ul {
-  font-size: 12px;
-  height: 100%;
+  font-size: 12px;  
   margin: 0;
   list-style: none;
   overflow-y: auto;
