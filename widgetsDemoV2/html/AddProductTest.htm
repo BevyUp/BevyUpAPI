@@ -43,28 +43,34 @@
         var productData = {
             4073252: {
                 bup_id: "4073252",
-                bup_name: "Floral Embroidered Mesh Sheath Dress ",
+                bup_name: "Floral Embroidered Mesh Dress ",
                 bup_url: "http://shop.nordstrom.com/s/adrianna-papellfloral-embroidered-mesh-sheath-dress-regular-petite/4073252?origin=category-personalizedsort&contextualcategoryid=0&fashionColor=&resultback=700",
                 bup_imageUrl: "http://g.nordstromimage.com/imagegallery/store/product/Medium/12/_11004372.jpg",
                 bup_price: "USD 178"
             },
             4110293: {
                 bup_id: "4110293",
-                bup_name: "Embellished Georgette Fit & Flare Dress",
+                bup_name: "Embellished Fit & Flare Dress",
                 bup_url: "http://shop.nordstrom.com/s/lace-motif-panlled/4110293?origin=category",
                 bup_imageUrl: "http://g.nordstromimage.com/imagegallery/store/product/Medium/8/_10982468.jpg",
                 bup_price: "USD 649"
             },
             4104104: {
                 bup_id: "4104104",
-                bup_name: "Floral Print Faille Fit & Flare Dress",
-                bup_url: "http://shop.nordstrom.com/s/eliza-jfloral-print-faille-fit-flare-dress-regular-petite/4104104?origin=category",
+                bup_name: "Floral  Faille Fit & Flare Dress",
+                bup_url: "http://shop.nordstrom.com/s/eliza-j-lace-tulip-dress-regular-petite/4173718?origin=category",
                 bup_imageUrl: "http://g.nordstromimage.com/imagegallery/store/product/Medium/4/_11022584.jpg",
                 bup_price: "USD 178"
+            },
+            3835687: {
+                bup_id: "3835687",
+                bup_name: "Dupioni Fit & Flare Dress",
+                bup_url: "http://shop.nordstrom.com/s/alfred-sung-dupioni-fit-flare-dress/3835687?origin=category-personalizedsort&contextualcategoryid=0&fashionColor=Barcelona&resultback=1400",
+                bup_imageUrl: "http://g.nordstromimage.com/imagegallery/store/product/Medium/5/_11189125.jpg",
+                bup_price: "USD 164"
             }
         };
-        $(function () {
-            console.log("hEre");
+        $(function () {            
             var productsContainerList = $('#productsList');
             $.each(productData, function (index, element) {
                 var productHtml = '<li class="product">' +
@@ -76,9 +82,15 @@
                     '<button class="btn btn-primary addToTagBoard" data-product-id="' + element.bup_id + '">Add to Favorites</button>' +
                     '</div>' +
                     '</li>';
-                productsContainerList.append(productHtml);
-                console.log(productHtml);
+                productsContainerList.append(productHtml);                
             });
+            var container = $(".bevyup_productsBoard_widget");
+                        $("#itemProductsList").css('height', $(container).innerHeight() - 60);            
+            $(".addToTagBoard").one("click",function () {
+                $(".tbw_list").css('height', $(container).innerHeight() - 60);
+            });
+            $(".column1").append('<img id="imgLogo" src="http://freevectorlogo.net/wp-content/uploads/2012/12/nordstrom-logo-vector.png" />');
+
         });
     </script>
 </head>
@@ -96,7 +108,9 @@
             <div class="col-md-5 col-sm-5 column2">
                 <div class="bevyup_productsBoard_widget">
                     <h2 class="columTitle">Women's Dresses</h2>
-                    <ul id="productsList" class='productList'></ul>
+                    <div id="itemProductsList">
+                        <ul id="productsList" class='productList'></ul>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 .col-sm-4 column3 tagboardParent"></div>
