@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/yeti/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../Styles.css">
-    <link rel="stylesheet" type="text/css" href="../Nordstrom.css">
-    <script type="text/javascript" src="../Nordstrom.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Nordstrom.css">    
     <script type="text/javascript" src="../InitScriptWithInviteIdOverride.js"></script>
     <script type="text/javascript" src="../RosterWidget.js"></script>
     <script type="text/javascript" src="../TagBoardWidget.js"></script>
@@ -72,7 +71,7 @@
                     '<a href="' + element.bup_url + '">' +
                     '<img src="' + element.bup_imageUrl + '"></img></a>' +
                     '<div class="productInfo">' +
-                    '<span>' + element.bup_name + '</span>' +
+                    '<span class="prodName">' + element.bup_name + '</span>' +
                     '<span class="price">' + element.bup_price + '</span>' +
                     '<button class="btn btn-primary addToTagBoard" data-product-id="' + element.bup_id + '">Add to Favorites</button>' +
                     '</div>' +
@@ -87,13 +86,16 @@
     <div class="container-full">
         <div class="row">
             <div class="col-md-3 col-sm-3 column1">
+                <!--<div class="identityParent"></div>
+                <div class="chatParent"></div>
+                <div class="agentParent"></div>-->
                 <div class="identityParent"><div class="bevyupIdentificationWidget"><h2>User Identity</h2><div class="content">    <div class="welcomeText">Welcome, <span class="welcomeUserName">Host</span>!</div>    <a class="dashboardLink" href="http://agent.bevyup.com">Dashboard</a>    <div class="logOutLink">Log Out</div></div></div></div>
                 <div class="chatParent"><div class="bevyup_chat_widget"><h2>Chat</h2><div class="cw_chatArea">    <ul class="cw_list"></ul>    <textarea class="cw_chatInput"></textarea>    <div class="cw_chatStatus"></div></div></div></div>
                 <div class="agentParent"></div>
             </div>
             <div class="col-md-5 col-sm-5 column2">
                 <div class="bevyup_productsBoard_widget">
-                    <h2>Women's Dresses</h2>
+                    <h2 class="columTitle">Women's Dresses</h2>
                     <ul id="productsList" class='productList'></ul>
                 </div>
             </div>

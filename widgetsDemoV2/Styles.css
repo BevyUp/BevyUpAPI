@@ -34,13 +34,20 @@
   display: none;
 }
 .bevyupIdentificationWidget {
-  background-color: #a0d468;
-  color: white;
+  font-weight: 300;
+  background-color: #5bc0de;
+  border-color: #3db5d8;
+  color: #ffffff;
+  margin-bottom: 21px;
+  border: 1px solid transparent;
+  border-radius: 0;
 }
 .bevyupIdentificationWidget h2 {
-  background-color: #8cc152;
+  background-color: #000000;
   padding: 10px;
   margin: 0;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 .bevyupIdentificationWidget .content {
   padding: 10px;
@@ -64,18 +71,20 @@
   float: right;
 }
 .bevyup_tagBoard_widget {
-  background-color: #4fc1e9;
+  background-color: #ffffff;
   color: white;
   height: 100%;
+  border: solid 2px #008cba;
+  box-shadow: #B3B3B3 6px 0 2px;
 }
 .bevyup_tagBoard_widget h2 {
   margin: 0;
-  background-color: #3bafda;
+  background-color: #008cba;
   font-weight: bold;
   padding: 10px;
 }
 .bevyup_tagBoard_widget ul {
-  font-size: 12px;  
+  font-size: 12px;
   margin: 0;
   list-style: none;
   overflow-y: auto;
@@ -89,6 +98,7 @@
 }
 .bevyup_tagBoard_widget .tbw_productView .tbw_prodInfo .tbw_prodName {
   font-weight: bold;
+  color: #000000;
 }
 .bevyup_tagBoard_widget .tbw_productView .tbw_prodInfo .tbw_prodPrice:before {
   content: "$";
@@ -102,7 +112,7 @@
 }
 .bevyup_tagBoard_widget .tbw_productView .tbw_prodImg {
   width: 100px;
-  height: 100px;
+  height: 140px;
   border-radius: 100%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -118,18 +128,22 @@
 }
 .bevyup_chat_widget h2 {
   margin: 0;
-  background-color: #EF3458;
+  background-color: #000000;
   font-weight: bold;
   padding: 10px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 .bevyup_chat_widget .cw_chatArea {
   padding: 5px;
+  border: 1px solid black;
+  background-color: black;
 }
 .bevyup_chat_widget .cw_chatArea .cw_list {
   height: 200px;
   overflow-y: auto;
   padding: 0;
   margin: 0;
+  background-color: white;
 }
 .bevyup_chat_widget .cw_chatArea .cw_list .cw_chatView {
   margin-top: 4px;
@@ -172,6 +186,7 @@
 .bevyup_chat_widget .cw_chatArea .cw_chatInput {
   width: 100%;
   overflow: hidden auto;
+  color: #000000;
 }
 .bevyup_agent_utilities_widget {
   background-color: #884468;
