@@ -45,8 +45,9 @@
 "<h2>User Identity</h2>\
 <div class='content'>\
     <div class='welcomeText'>Welcome, <span class='welcomeUserName'>" + localParticipant.getName() + "</span>!</div>\
-    <a class='dashboardLink' href='http://agent.bevyup.com'>Dashboard</a>\
-    <div class='logOutLink'>Log Out</div>\
+    <a class='btn btn-info btn-sm  dashboardLink' href='http://agent.bevyup.com'>Dashboard</a><br/>\
+    <div class='btn btn-info btn-sm smsButton'>Send SMS</div>\
+    <div class='btn btn-info btn-sm logOutLink'>Log Out</div>\
 </div>";
 
         container.innerHTML = html;
@@ -54,6 +55,9 @@
         // Hook up the logOutLink click handler
         var logOutLink = $(container).find('.logOutLink');
         logOutLink.click(logOutLinkClicked);
+
+        var smsButton = $(container).find('.smsButton');
+        smsButton.click(smsButtonClicked)
 
         if (remoteParticipants != null && remoteParticipants.length > 0) {
             var remoteParticipant = remoteParticipants[0];
@@ -130,6 +134,10 @@
     // When a user clicks logout, this widget will call the leaveSession function on the BevyUpApi.
     function logOutLinkClicked() {
         m_SessionModel.leaveSession().then(leaveSessionCallback, leaveSessionCallbackFailure);
+    }
+
+    function smsButtonClicked() {
+        
     }
 
     // When leaveSession's callback is called, navigate to the user to a designated location
