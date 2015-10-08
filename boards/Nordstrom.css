@@ -1,0 +1,138 @@
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.bevyup_productsBoard_widget {
+    background-color: #ffffff;
+    box-shadow: #B3B3B3 6px 0 2px;
+    border: solid 2px #000000;
+    height: 100%;
+}
+
+#imgLogo {
+    width: 230px;
+    height: 221px;
+    display: block;
+    margin: auto;
+}
+
+.productList {  
+    list-style: none;
+    display: inline-block;
+    text-align: left;
+}
+
+#itemProductsList {
+    overflow-y: scroll;
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.product {
+    margin: 20px 0;
+}
+
+    .product > * {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+.productInfo > * {
+    display: block;
+}
+
+.product img {
+    width: 150px;
+    border-radius: 10%;
+}
+
+button.addToTagBoard {
+    /* Default to hidden */
+    display: none;
+}
+
+.gs_localAgent button.addToTagBoard,
+.gs_showAddProductButton button.addToTagBoard {
+    /* Make the AddToTagBoard buttons visible for the agent only */
+    display: inline-block;
+}
+
+button.addToTagBoard:not(.added):before {
+    content: "+";
+    font-size: 18px;
+    margin-right: 4px;
+}
+
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.column1, .column2, .column3 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.counter {
+    color: white;
+    font-weight: bold;
+}
+
+.columTitle {
+    color: white;
+    font-weight: bold;
+}
+
+.tbw_prodPrice {
+    color: #000000;
+}
+
+.prodName {
+    font-weight: bold;
+}
+
+.column2 {
+    height: 100%;
+    color: #000000;
+}
+
+    .column2 h2 {
+        margin: 0;
+        padding: 10px;
+        background-color: #000000;
+    }
+
+.tbw_removeButton {
+    color: #ffffff;
+    background-color: #008cba;
+    border-color: #3c9a5f;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 6px;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+    .tbw_removeButton:hover {
+        color: #ffffff;
+        border-radius: 6px;
+        background-color: #31b0d5;
+        border-color: #269abc;
+    }

@@ -1,0 +1,238 @@
+﻿.bevyupStyleBoardDiv {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    min-height: 100px;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: lightblue;
+    z-index: 999999;
+
+    div {
+        padding: 4px;
+    }
+
+    .newlyAddedTool {
+        min-height: 25px;
+        overflow: hidden;
+    }
+
+
+    &.agentSide {
+        &.remoteLinkFound {
+            .remoteInviteLink {
+                display: block;
+            }
+        }
+
+        &.remoteLinkNotFound {
+            .generateLinkButton {
+                display: block;
+            }
+        }
+
+        background-color: yellow;
+    }
+
+    .generateLinkButton {
+        display: none;
+    }
+
+    .remoteInviteLink {
+        display: none;
+    }
+}
+
+.bevyupIdentificationWidget {
+    .content {
+        padding: 10px;
+        font-size: 12px;
+
+        .welcomeText {
+            .welcomeUserName {
+                font-weight: bold;
+            }
+
+            margin: 10px 0;
+        }
+    }
+}
+
+
+.bevyup_tagBoard_widget {
+    background-color: #ffffff;
+    color: white;
+    height: 100%;
+    border: solid 2px #008cba;
+    box-shadow: #B3B3B3 6px 0 2px;
+
+    h2 {
+        margin: 0;
+        background-color: #008cba;
+        font-weight: bold;
+        padding: 10px;
+
+        .title {
+            display:inline-block;
+        }
+
+        .listSelector {
+            color: black;
+        }
+    }
+
+    ul {
+        font-size: 12px;
+        margin: 0;
+        list-style: none;
+        overflow-y: auto;
+        height: 90%;
+
+        li {
+            margin: 20px 0;
+        }
+    }
+
+    .tbw_productView {
+        .tbw_prodInfo {
+            display: inline-block;
+            margin-left: 20px;
+            max-width: 50%;
+
+            .tbw_prodName {
+                font-weight: bold;
+                color: #000000;
+            }
+
+            .tbw_prodCommentCount {
+                &:before {
+                    content: "Comments: ";
+                }
+            }
+        }
+
+        > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .tbw_prodImg {
+            width: 100px;
+            height: 140px;
+            border-radius: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: white;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+    }
+}
+
+.bevyup_chat_widget {
+    background-color: #FF4468;
+    color: white;
+    margin-top: 5px;
+
+    h2 {
+        margin: 0;
+        background-color: #000000;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .cw_chatArea {
+        padding: 5px;
+        border: 1px solid black;
+        background-color: black;
+
+        .cw_list {
+            height: 200px;
+            overflow-y: auto;
+            padding: 0;
+            margin: 0;
+            background-color: white;
+
+            .cw_chatView {
+                margin-top: 4px;
+                list-style: none;
+
+                .cw_partImageWrapper {
+                    height: 34px;
+                    width: 34px;
+                    border-radius: 50%;
+                    padding: 2px;
+                    display: inline-block;
+                    vertical-align: top;
+
+                    &.cw_agentUser {
+                        background-color: #20B1EC;
+                    }
+
+                    &.cw_customerUser {
+                        background-color: #73B03D;
+                    }
+
+                    img {
+                        border-radius: 50%;
+                        width: 100%;
+                        height: 100%;
+                        vertical-align: middle;
+                        display: inline-block;
+                        position: static;
+                        padding: 0;
+                        margin: 0;
+                        font-size: 0;
+                    }
+                }
+
+                .cw_text {
+                    display: inline-block;
+                    max-width: ~"calc(100% - 48px)";
+                    max-width: ~"-webkit-calc(100% - 48px)";
+                    max-width: ~"-moz-calc(100% - 48px)";
+                    vertical-align: middle;
+                    margin-left: 7px;
+                    word-wrap: break-word;
+                }
+            }
+        }
+
+        .cw_chatInput {
+            width: 100%;
+            overflow: hidden auto;
+            color: #000000;
+        }
+    }
+}
+
+.bevyup_agent_utilities_widget {
+    background-color: #884468;
+    color: white;
+    margin-top: 5px;
+
+    h2 {
+        margin: 0;
+        background-color: #783458;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .content {
+        padding: 10px;
+        font-size: 12px;
+
+        .agentId {
+            margin: 10px 0;
+        }
+    }
+}
+
+.bevyup_productsBoard_widget {
+    .scan {
+        margin-left: 30px;
+    }
+}

@@ -1,0 +1,152 @@
+<html>
+<head>
+    <title>Add Product Widget Demo</title>
+
+    <script type="text/javascript">
+        // Checks whether the url has a parameter of bevyupagentmodel.
+        // If so, set the window variable so the widgets will be able to act accordingly
+        window.bevyupAgentMode = window.location.href.toLowerCase().indexOf("bevyupagentmode") != -1;
+    </script>
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/yeti/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Styles.css">
+    <link rel="stylesheet" type="text/css" href="../Nordstrom.css">    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="barcodeScanner.js"></script>
+    <script type="text/javascript" src="../InitScriptWithInviteIdOverride.js"></script>
+    <script type="text/javascript" src="../RosterWidget.js"></script>
+    <script type="text/javascript" src="../TagBoardWidget.js"></script>
+    <script type="text/javascript" src="../AddProductWidget.js"></script>
+    <script type="text/javascript" src="../ChatWidget.js"></script>
+    <script type="text/javascript" src="../AgentUtilitiesWidget.js"></script>
+    <script type="text/javascript">
+        var bu = document.createElement('script'),
+            partnerId = 'bevyup_demo';
+
+        bu.type = 'text/javascript';
+        bu.async = true;
+        bu.id = 'bevyup_partner_script';
+
+        var overridePartnerIdResult = window.location.search.match(new RegExp('overridePartnerId=([^&#]+)'));
+
+        if (overridePartnerIdResult) {
+            partnerId = overridePartnerIdResult[1];
+        }
+
+        bu.src = '//b.bevyup.com/GetTemplateScript/' + partnerId + '/v1';
+
+        document.head.appendChild(bu);
+
+    </script>
+    <script type="text/javascript">
+        var productData = {
+            735854778514: {
+                bup_id: "4073252",
+                title: "Floral Embroidered Mesh Dress ",
+                bup_url: "http://shop.nordstrom.com/s/adrianna-papellfloral-embroidered-mesh-sheath-dress-regular-petite/4073252?origin=category-personalizedsort&contextualcategoryid=0&fashionColor=&resultback=700",
+                image: "/12/_11004372.jpg",
+                brand: "Adrianna Papell",
+                bup_price: "USD 178"
+            },
+            735854108380: {
+                bup_id: "4110293",
+                title: "Embellished Fit & Flare Dress",
+                bup_url: "http://shop.nordstrom.com/s/lace-motif-panlled/4110293?origin=category",
+                image: "/8/_10982468.jpg",
+                brand: "",
+                bup_price: "USD 649"
+            },
+            4104104: {
+                bup_id: "4104104",
+                title: "Floral  Faille Fit & Flare Dress",
+                bup_url: "http://shop.nordstrom.com/s/eliza-j-lace-tulip-dress-regular-petite/4173718?origin=category",
+                image: "/4/_11022584.jpg",
+                brand: "",
+                bup_price: "USD 178"
+            },
+            3835687: {
+                bup_id: "3835687",
+                title: "Dupioni Fit & Flare Dress",
+                bup_url: "http://shop.nordstrom.com/s/alfred-sung-dupioni-fit-flare-dress/3835687?origin=category-personalizedsort&contextualcategoryid=0&fashionColor=Barcelona&resultback=1400",
+                image: "/5/_11189125.jpg",
+                brand: "",
+                bup_price: "USD 164"
+            }
+        };
+        $(function () {            
+            var productsContainerList = $('#productsList');
+            $.each(productData, function (index, element) {
+                var productHtml = '<li class="product">' +
+                    '<a href="' + element.bup_url + '">' +
+                    '<img src="http://g.nordstromimage.com/imagegallery/store/product/Large' + element.image + '"></img></a>' +
+                    '<div class="productInfo">' +
+                    '<span class="prodName">' + element.title + '</span>' +
+                    '<span class="price">' + element.bup_price + '</span>' +
+                    '<button class="btn btn-primary addToTagBoard" data-product-id="' + index + '">Add to Favorites</button>' +
+                    '</div>' +
+                    '</li>';
+                productsContainerList.append(productHtml);
+            });
+
+            $(".column1").append('<img id="imgLogo" src="http://freevectorlogo.net/wp-content/uploads/2012/12/nordstrom-logo-vector.png" />');
+            
+            $(".scan").click(function() {
+                var scanner = cordova.plugins.barcodeScanner;//cordova.require("cordova/plugin/BarcodeScanner");
+                console.log("Scanning...");
+
+                scanner.scan( function (result) { 
+
+                    console.log("Scanner result: \n" +
+                        "text: " + result.text + "\n" +
+                        "format: " + result.format + "\n" +
+                        "cancelled: " + result.cancelled + "\n");
+
+                    console.log(result);
+
+                    if(Object.prototype.hasOwnProperty.call(productData, result.text)) {
+                        console.log("Found product: " + result.text);
+                        BevyUpApi.getProductListsModel()
+                        .then(function(listsModel) {
+                            // Use it to get the named list.
+                            return listsModel.getOrCreateProductList("Board");
+                        })
+                        .then(function(list) {
+                            // Add the product to the list.
+                            return list.addProduct(productData[result.text]);
+                        });
+                    } else {
+                        alert("Didn't find product: " + result.text);
+                    }
+                    
+
+                }, function (error) { 
+                    console.log("Scanning failed: ", error); 
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container-full">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 column1">
+                <div class="identityParent"></div>
+                <div class="chatParent"></div>
+                <div class="agentParent"></div>
+            </div>
+            <div class="col-md-5 col-sm-5 column2">
+                <div class="bevyup_productsBoard_widget">
+                    <h2 class="columTitle">Products <button class='scan btn btn-info btn-sm'>Scan</button></h2>
+                    <div id="itemProductsList">
+                        <ul id="productsList" class='productList'></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 .col-sm-4 column3 tagboardParent"></div>
+        </div>
+    </div>
+</body>
+</html>
